@@ -1,103 +1,69 @@
-# KAIM - Week 0: Climate Change Challenge
+***
 
-## Project Overview
-This project is part of the 10 Academy (KAIM) Intensive Training. Week 0 focuses on establishing a professional engineering foundation. This includes setting up a reproducible development environment, implementing version control best practices, and establishing a Continuous Integration (CI) pipeline.
+# African Climate Dynamics (2015-2026)
+**10 Academy KAIM Week 0 | Operational Research for COP32**
 
-## Objectives
-- **Version Control**: Utilize Git for branching, committing (Conventional Commits), and merging via Pull Requests.
-- **Environment Management**: Setup Python virtual environments for dependency isolation.
-- **CI/CD**: Automate dependency installation and environment verification using GitHub Actions.
-- **Project Structure**: Organize the repository for scalability in data science and engineering tasks.
+## Research Context
+This repository serves as a centralized analytical hub for evaluating climate variability across five strategic African jurisdictions: Ethiopia, Kenya, Nigeria, Sudan, and Tanzania. By synthesizing NASA POWER satellite observations, this study provides the empirical evidence required for EthioClimate Analytics to support the 2027 COP32 summit objectives.
 
-## Project Structure
-The repository follows a modular structure to separate concerns:
-- `.github/workflows/`: Contains the CI (`ci.yml`) configurations.
-- `notebooks/`: Jupyter notebooks for data exploration and visualization.
-- `scripts/`: Modular Python scripts for reusable logic.
-- `src/`: Core source code for the project.
-- `tests/`: Unit tests to ensure code quality.
+## Primary Research Pillars
+* **Data Sanitization:** Rigorous cleaning protocols to handle NASA-specific sentinel values and multi-dimensional outliers.
+* **Temporal Trends:** Longitudinal analysis of temperature and precipitation patterns over an 11-year window.
+* **Correlation Mapping:** Identifying the thermodynamic relationships between humidity, wind speed, and thermal ranges.
+* **Summit Readiness:** Developing high-fidelity visualizations to communicate regional climate threats to global policymakers.
 
-## Setup Instructions
+## System Requirements
+* **Environment:** Python 3.10 or higher
+* **Core Dependencies:** NumPy, Pandas, Matplotlib, Seaborn, SciPy
+* **Version Control:** Git using a feature-branch methodology (`eda-<country>`)
 
-### Prerequisites
-- Python 3.8+
-- Git
+## Directory Layout
+```text
+climate-challenge-week0/
+├── .github/              # Automated CI/CD workflows
+├── notebooks/            # Primary Analysis (Jupyter Environment)
+│   ├── ethiopia_eda.ipynb
+│   ├── kenya_eda.ipynb
+│   ├── nigeria_eda.ipynb
+│   ├── sudan_eda.ipynb
+│   └── tanzania_eda.ipynb
+├── app/                  # Logic for the Streamlit dashboard
+├── scripts/              # Standalone data utility scripts
+├── src/                  # Reusable source modules
+├── tests/                # Validation suite for data quality
+├── requirements.txt      # Library manifest
+└── README.md             # Project documentation
+```
 
-### Installation
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/b-ezawit/climate-challenge-week0.git
-   cd climate-challenge-week0
-   ```
+## Implementation Guide
 
-2. **Set up Virtual Environment:**
-   ```bash
-   python -m venv .venv
-   # Activate on Windows:
-   .\.venv\Scripts\activate
-   # Activate on Mac/Linux:
-   source .venv/bin/activate
-   ```
+**1. Repository Synchronization**
+```bash
+git clone https://github.com/YOUR_USERNAME/climate-challenge-week0.git
+cd climate-challenge-week0
+```
 
-3. **Install Dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
+**2. Virtual Environment Initialization**
+```bash
+# Setup local environment
+python -m venv .venv
 
-## Continuous Integration
-A GitHub Actions workflow is configured to run on every push to the `main` branch. It ensures that the environment can be built successfully by installing all listed dependencies in `requirements.txt`.
+# Activate for Windows Shell
+.\.venv\Scripts\activate
 
-EOF# Ensure you are on the setup-task branch
-git checkout setup-task
+# Activate for Bash/Zsh
+source .venv/bin/activate
+```
 
-# Create the detailed KAIM content
-cat <<EOF > README.md
-# KAIM - Week 0: Climate Change Challenge
+**3. Dependency Injection**
+```bash
+pip install -r requirements.txt
+```
 
-## Project Overview
-This project is part of the 10 Academy (KAIM) Intensive Training. Week 0 focuses on establishing a professional engineering foundation. This includes setting up a reproducible development environment, implementing version control best practices, and establishing a Continuous Integration (CI) pipeline.
+**4. Executing the Analysis**
+```bash
+# Open the interactive research environment
+jupyter notebook
+```
 
-## Objectives
-- **Version Control**: Utilize Git for branching, committing (Conventional Commits), and merging via Pull Requests.
-- **Environment Management**: Setup Python virtual environments for dependency isolation.
-- **CI/CD**: Automate dependency installation and environment verification using GitHub Actions.
-- **Project Structure**: Organize the repository for scalability in data science and engineering tasks.
-
-## Project Structure
-The repository follows a modular structure to separate concerns:
-- `.github/workflows/`: Contains the CI (`ci.yml`) configurations.
-- `notebooks/`: Jupyter notebooks for data exploration and visualization.
-- `scripts/`: Modular Python scripts for reusable logic.
-- `src/`: Core source code for the project.
-- `tests/`: Unit tests to ensure code quality.
-
-## Setup Instructions
-
-### Prerequisites
-- Python 3.8+
-- Git
-
-### Installation
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/b-ezawit/climate-challenge-week0.git
-   cd climate-challenge-week0
-   ```
-
-2. **Set up Virtual Environment:**
-   ```bash
-   python -m venv .venv
-   # Activate on Windows:
-   .\.venv\Scripts\activate
-   # Activate on Mac/Linux:
-   source .venv/bin/activate
-   ```
-
-3. **Install Dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-## Continuous Integration
-A GitHub Actions workflow is configured to run on every push to the `main` branch. It ensures that the environment can be built successfully by installing all listed dependencies in `requirements.txt`.
-
+***
