@@ -1,67 +1,69 @@
-10 Academy KAIM Mastery Series Week 0 Project
-African Climate Analysis: COP32 Strategic Data
+***
 
-Executive Summary
-This project involves a comprehensive investigation into the meteorological trends of five African regions—Ethiopia, Kenya, Sudan, Tanzania, and Nigeria—spanning the years 2015 to 2026. Utilizing high-resolution NASA POWER satellite data, the objective is to provide EthioClimate Analytics with the quantitative evidence needed to lead discussions at the upcoming COP32 summit in Addis Ababa.
+# Technical Assessment: African Climate Dynamics (2015-2026)
+**KAIM Week 0 | Operational Research for COP32**
 
-Core Objectives
-Regional Profiling: Perform detailed data cleaning and statistical profiling for each target country.
+## Research Context
+This repository serves as a centralized analytical hub for evaluating climate variability across five strategic African jurisdictions: Ethiopia, Kenya, Nigeria, Sudan, and Tanzania. By synthesizing NASA POWER satellite observations, this study provides the empirical evidence required for EthioClimate Analytics to support the 2027 COP32 summit objectives.
 
-Environmental Trends: Identify significant shifts in temperature and precipitation patterns over the last decade.
+## Primary Research Pillars
+* **Data Sanitization:** Rigorous cleaning protocols to handle NASA-specific sentinel values and multi-dimensional outliers.
+* **Temporal Trends:** Longitudinal analysis of temperature and precipitation patterns over an 11-year window.
+* **Correlation Mapping:** Identifying the thermodynamic relationships between humidity, wind speed, and thermal ranges.
+* **Summit Readiness:** Developing high-fidelity visualizations to communicate regional climate threats to global policymakers.
 
-Risk Assessment: Isolate extreme weather anomalies to better understand regional climate vulnerabilities.
+## System Requirements
+* **Environment:** Python 3.10 or higher
+* **Core Dependencies:** NumPy, Pandas, Matplotlib, Seaborn, SciPy
+* **Version Control:** Git using a feature-branch methodology (`eda-<country>`)
 
-Strategic Communication: Present data-driven narratives that strengthen Africa's position in global climate policy.
-
-Technical Architecture
-Primary Language: Python 3.10+
-
-Libraries: Pandas (Data Wrangling), NumPy (Numerical Analysis), Matplotlib/Seaborn (Visualization)
-
-Automation: GitHub Actions for Continuous Integration
-
-Workflow: Modular development with feature-branch version control
-
-Project Structure
-Plaintext
+## Directory Layout
+```text
 climate-challenge-week0/
-├── .github/              # Automation workflows
-├── app/                  # Dashboard logic and utilities
-├── notebooks/            # Research and Exploratory Analysis
+├── .github/              # Automated CI/CD workflows
+├── notebooks/            # Primary Analysis (Jupyter Environment)
 │   ├── ethiopia_eda.ipynb
 │   ├── kenya_eda.ipynb
 │   ├── nigeria_eda.ipynb
 │   ├── sudan_eda.ipynb
 │   └── tanzania_eda.ipynb
-├── scripts/              # Independent processing scripts
-├── src/                  # Core application modules
-├── tests/                # Validation and unit tests
-├── requirements.txt      # Dependency manifest
-├── .gitignore            # Environment and data exclusions
+├── app/                  # Logic for the Streamlit dashboard
+├── scripts/              # Standalone data utility scripts
+├── src/                  # Reusable source modules
+├── tests/                # Validation suite for data quality
+├── requirements.txt      # Library manifest
 └── README.md             # Project documentation
-Installation and Usage
-1. Clone the environment
+```
 
-Bash
+## Implementation Guide
+
+**1. Repository Synchronization**
+```bash
 git clone https://github.com/YOUR_USERNAME/climate-challenge-week0.git
 cd climate-challenge-week0
-2. Environment Isolation
+```
 
-Bash
-# Initialize virtual environment
+**2. Virtual Environment Initialization**
+```bash
+# Setup local environment
 python -m venv .venv
 
-# Activate on Windows
+# Activate for Windows Shell
 .\.venv\Scripts\activate
 
-# Activate on Unix/macOS
+# Activate for Bash/Zsh
 source .venv/bin/activate
-3. Dependency Management
+```
 
-Bash
+**3. Dependency Injection**
+```bash
 pip install -r requirements.txt
-4. Interactive Analysis
+```
 
-Bash
-# Launch the notebook environment
+**4. Executing the Analysis**
+```bash
+# Open the interactive research environment
 jupyter notebook
+```
+
+***
