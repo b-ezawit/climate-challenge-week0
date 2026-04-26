@@ -1,8 +1,8 @@
 import sys
 import pathlib
+from src.utils import add, multiply
 
 sys.path.insert(0, str(pathlib.Path(__file__).parent.parent))
-from src.utils import add, multiply 
 
 
 def test_add_two_positive_numbers():
