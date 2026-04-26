@@ -1,69 +1,190 @@
-***
 
-# Technical Assessment: African Climate Dynamics (2015-2026)
-**KAIM Week 0 | Operational Research for COP32**
+# 10 Academy: Artificial Intelligence Mastery
 
-## Research Context
-This repository serves as a centralized analytical hub for evaluating climate variability across five strategic African jurisdictions: Ethiopia, Kenya, Nigeria, Sudan, and Tanzania. By synthesizing NASA POWER satellite observations, this study provides the empirical evidence required for EthioClimate Analytics to support the 2027 COP32 summit objectives.
+## Week 0 Challenge — African Climate Trend Analysis
 
-## Primary Research Pillars
-* **Data Sanitization:** Rigorous cleaning protocols to handle NASA-specific sentinel values and multi-dimensional outliers.
-* **Temporal Trends:** Longitudinal analysis of temperature and precipitation patterns over an 11-year window.
-* **Correlation Mapping:** Identifying the thermodynamic relationships between humidity, wind speed, and thermal ranges.
-* **Summit Readiness:** Developing high-fidelity visualizations to communicate regional climate threats to global policymakers.
+---
 
-## System Requirements
-* **Environment:** Python 3.10 or higher
-* **Core Dependencies:** NumPy, Pandas, Matplotlib, Seaborn, SciPy
-* **Version Control:** Git using a feature-branch methodology (`eda-<country>`)
+## Overview
 
-## Directory Layout
-```text
-climate-challenge-week0/
-├── .github/              # Automated CI/CD workflows
-├── notebooks/            # Primary Analysis (Jupyter Environment)
-│   ├── ethiopia_eda.ipynb
-│   ├── kenya_eda.ipynb
-│   ├── nigeria_eda.ipynb
-│   ├── sudan_eda.ipynb
-│   └── tanzania_eda.ipynb
-├── app/                  # Logic for the Streamlit dashboard
-├── scripts/              # Standalone data utility scripts
-├── src/                  # Reusable source modules
-├── tests/                # Validation suite for data quality
-├── requirements.txt      # Library manifest
-└── README.md             # Project documentation
+This project is part of the Week 0 challenge for the 10 Academy AI Mastery program. The objective is to establish a solid development workflow and perform exploratory data analysis (EDA) on African climate datasets in preparation for deeper analysis related to COP32.
+
+---
+
+## Project Objectives
+
+### Task 1: Git & Environment Setup
+
+* Set up a Git-based workflow using best practices.
+* Configure a Python development environment.
+* Implement Continuous Integration (CI) using GitHub Actions.
+* Document setup and reproducibility steps.
+
+### Task 2: Data Profiling, Cleaning & EDA
+
+* Clean and preprocess climate datasets.
+* Perform exploratory data analysis (EDA) per country.
+* Extract insights on temperature, rainfall, and related variables.
+
+---
+
+## Repository Structure
+
+```
+├── .vscode/
+│   └── settings.json
+├── .github/
+│   └── workflows/
+│       └── ci.yml
+├── .gitignore
+├── requirements.txt
+├── README.md
+├── src/
+├── notebooks/
+│   ├── __init__.py
+│   └── README.md
+├── tests/
+│   └── __init__.py
+└── scripts/
+    ├── __init__.py
+    └── README.md
 ```
 
-## Implementation Guide
+---
 
-**1. Repository Synchronization**
+## Environment Setup
+
+### 1. Clone Repository
+
 ```bash
-git clone https://github.com/YOUR_USERNAME/climate-challenge-week0.git
+git clone https://github.com/<your-username>/climate-challenge-week0.git
 cd climate-challenge-week0
 ```
 
-**2. Virtual Environment Initialization**
+### 2. Create Virtual Environment
+
+Using `venv`:
+
 ```bash
-# Setup local environment
-python -m venv .venv
-
-# Activate for Windows Shell
-.\.venv\Scripts\activate
-
-# Activate for Bash/Zsh
-source .venv/bin/activate
+python -m venv venv
+source venv/bin/activate      # Linux/Mac
+venv\Scripts\activate         # Windows
 ```
 
-**3. Dependency Injection**
+Or using `conda`:
+
+```bash
+conda create -n climate-env python=3.x
+conda activate climate-env
+```
+
+### 3. Install Dependencies
+
 ```bash
 pip install -r requirements.txt
 ```
 
-**4. Executing the Analysis**
+---
+
+## Git Workflow
+
+* Create a setup branch:
+
 ```bash
-# Open the interactive research environment
-jupyter notebook
+git checkout -b setup-task
 ```
 
-***
+* Follow Conventional Commits:
+
+  * `init: add .gitignore`
+  * `chore: setup virtual environment`
+  * `ci: add GitHub Actions workflow`
+
+* Open a Pull Request and merge into `main`.
+
+---
+
+## Continuous Integration
+
+A GitHub Actions workflow is configured to run on every push to `main`.
+It performs:
+
+* Python environment check or
+* Dependency installation via `requirements.txt`
+
+File location:
+
+```
+.github/workflows/ci.yml
+```
+
+---
+
+## Data Processing & EDA
+
+### Branch Naming
+
+```
+eda-<country>
+```
+
+Example:
+
+```
+eda-ethiopia
+```
+
+### Notebook Naming
+
+```
+<country>_eda.ipynb
+```
+
+---
+
+## Data Cleaning Steps
+
+* Replace `-999` values with `NaN` (NASA missing value indicator).
+* Remove duplicate rows and document findings.
+* Convert `YEAR` and `DOY` into a proper datetime column.
+* Extract `Month` for seasonal analysis.
+* Handle missing values:
+
+  * Forward-fill weather variables or
+  * Drop rows with >30% missing values
+
+---
+
+## Analysis Performed
+
+### 1. Summary Statistics
+
+* Descriptive statistics (`df.describe()`)
+* Missing value analysis (`df.isna().sum()`)
+
+### 2. Outlier Detection
+
+* Z-score method (|Z| > 3)
+* Document decision: drop, cap, or retain
+
+### 3. Time Series Analysis
+
+* Monthly average temperature (T2M)
+* Monthly precipitation totals (PRECTOTCORR)
+* Identification of seasonal patterns
+
+### 4. Correlation Analysis
+
+* Correlation heatmap
+* Key relationships:
+
+  * T2M vs RH2M
+  * T2M_RANGE vs WS2M
+
+### 5. Distribution Analysis
+
+* Histogram of precipitation
+* Bubble chart: temperature vs humidity with rainfall
+
+
+---
